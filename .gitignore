@@ -1,0 +1,28 @@
+﻿# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Folders
+bin/
+obj/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# Test results
+TestResults/
+
+# Others
+*.DS_Store
+*.vsidx
