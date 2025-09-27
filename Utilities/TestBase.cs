@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -10,19 +9,19 @@ namespace AutomationFrameworkE2E.Utilities
 {
     public class TestBase
     {
-        protected IWebDriver Driver;
-        protected IConfiguration Configuration;
+        protected IWebDriver Driver = null!;
+        private IConfiguration _configuration;
 
         [SetUp]
         public void SetUp()
         {
-            Configuration = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            string browserName = Configuration["browser"];
-            string url = Configuration["url"];
+            string browserName = _configuration["Browser"]!;
+            string url = _configuration["Url"]!;
 
             InitBrowser(browserName);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);

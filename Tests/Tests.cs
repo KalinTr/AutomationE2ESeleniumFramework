@@ -1,6 +1,5 @@
 using AutomationFrameworkE2E.Pages;
 using AutomationFrameworkE2E.Utilities;
-using OpenQA.Selenium;
 
 namespace AutomationFrameworkE2E.Tests
 {

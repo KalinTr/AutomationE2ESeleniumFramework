@@ -1,23 +1,16 @@
 ﻿using AutomationFrameworkE2E.Utilities;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomationFrameworkE2E.Pages
 {
-    public class InventoryPage : BasePage
+    public class InventoryPage(IWebDriver driver) : BasePage(driver)
     {
-        public InventoryPage(IWebDriver driver) : base(driver) { }
-
         private readonly By _cartButton = By.Id("shopping_cart_container");
         private readonly By _inventoryItems = By.XPath("//div[@class='inventory_list']//div[@class='inventory_item']");
         private readonly By _inventoryHeader = By.XPath("//div[@class='product_label']");
         private readonly By _addToCartButton = By.CssSelector(".btn_primary");
 
-        public void AddProductsToCart(IEnumerable<string> productNames)
+        private void AddProductsToCart(IEnumerable<string> productNames)
         {
             var items = Driver.FindElements(_inventoryItems);
 
@@ -30,12 +23,13 @@ namespace AutomationFrameworkE2E.Pages
                     if (name.Equals(nameToAdd, StringComparison.OrdinalIgnoreCase))
                     {
                         item.FindElement(_addToCartButton).Click();
-                        break; // спира този вътрешен цикъл и продължава с следващото име
+                        break;
                     }
                 }
             }
         }
-        public void OpenCart()
+
+        private void OpenCart()
         {
             Driver.FindElement(_cartButton).Click();
         }
