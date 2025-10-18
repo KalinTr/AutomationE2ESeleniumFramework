@@ -10,18 +10,18 @@ namespace AutomationFrameworkE2E.Utilities
     public class TestBase
     {
         protected IWebDriver Driver = null!;
-        private IConfiguration _configuration;
+        private IConfiguration configuration;
 
         [SetUp]
         public void SetUp()
         {
-            _configuration = new ConfigurationBuilder()
+            configuration = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
 
-            string browserName = _configuration["Browser"]!;
-            string url = _configuration["Url"]!;
+            string browserName = configuration["Browser"]!;
+            string url = configuration["Url"]!;
 
             InitBrowser(browserName);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);

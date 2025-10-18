@@ -5,11 +5,11 @@ namespace AutomationFrameworkE2E.Pages
 {
     public class CartPageLastStep(IWebDriver driver) : BasePage(driver)
     {
-        private readonly By _finishButton = By.LinkText("FINISH");
+        private readonly By finishButton = By.LinkText("FINISH");
 
         public ThankYouPage FinishOrder()
         {
-            Driver.FindElement(_finishButton).Click();
+            Driver.FindElement(finishButton).Click();
             return new ThankYouPage(Driver);
         }
     }

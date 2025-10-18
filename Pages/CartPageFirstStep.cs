@@ -5,11 +5,11 @@ namespace AutomationFrameworkE2E.Pages
 {
     public class CartPageFirstStep(IWebDriver driver) : BasePage(driver)
     {
-        private readonly By _checkoutButton = By.LinkText("CHECKOUT");
+        private readonly By checkoutButton = By.LinkText("CHECKOUT");
 
         public CartPageSecondStep ClickCheckOutButton()
         {
-            Driver.FindElement(_checkoutButton).Click();
+            Driver.FindElement(checkoutButton).Click();
             return new CartPageSecondStep(Driver);
         }
     }

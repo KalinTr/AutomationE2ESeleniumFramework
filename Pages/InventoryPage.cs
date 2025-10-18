@@ -5,14 +5,14 @@ namespace AutomationFrameworkE2E.Pages
 {
     public class InventoryPage(IWebDriver driver) : BasePage(driver)
     {
-        private readonly By _cartButton = By.Id("shopping_cart_container");
-        private readonly By _inventoryItems = By.XPath("//div[@class='inventory_list']//div[@class='inventory_item']");
-        private readonly By _inventoryHeader = By.XPath("//div[@class='product_label']");
-        private readonly By _addToCartButton = By.CssSelector(".btn_primary");
+        private readonly By cartButton = By.Id("shopping_cart_container");
+        private readonly By inventoryItems = By.XPath("//div[@class='inventory_list']//div[@class='inventory_item']");
+        private readonly By inventoryHeader = By.XPath("//div[@class='product_label']");
+        private readonly By addToCartButton = By.CssSelector(".btn_primary");
 
         private void AddProductsToCart(IEnumerable<string> productNames)
         {
-            var items = Driver.FindElements(_inventoryItems);
+            var items = Driver.FindElements(inventoryItems);
 
             foreach (var nameToAdd in productNames)
             {
@@ -22,7 +22,7 @@ namespace AutomationFrameworkE2E.Pages
 
                     if (name.Equals(nameToAdd, StringComparison.OrdinalIgnoreCase))
                     {
-                        item.FindElement(_addToCartButton).Click();
+                        item.FindElement(addToCartButton).Click();
                         break;
                     }
                 }
@@ -31,7 +31,7 @@ namespace AutomationFrameworkE2E.Pages
 
         private void OpenCart()
         {
-            Driver.FindElement(_cartButton).Click();
+            Driver.FindElement(cartButton).Click();
         }
 
         public CartPageFirstStep AddProductToCartAndOpenCart(IEnumerable<string> productNames)
@@ -43,7 +43,7 @@ namespace AutomationFrameworkE2E.Pages
 
         public string GetInventoryHeaderText()
         {
-            return Driver.FindElement(_inventoryHeader).Text;
+            return Driver.FindElement(inventoryHeader).Text;
         }
     }
 }
