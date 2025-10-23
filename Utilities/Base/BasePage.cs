@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace AutomationFrameworkE2E.Utilities
+namespace AutomationFrameworkE2E.Utilities.Base
 {
     public abstract class BasePage(IWebDriver driver)
     {

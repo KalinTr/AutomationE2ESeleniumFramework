@@ -1,5 +1,5 @@
 using AutomationFrameworkE2E.Pages;
-using AutomationFrameworkE2E.Utilities;
+using AutomationFrameworkE2E.Utilities.Base;
 
 namespace AutomationFrameworkE2E.Tests
 {

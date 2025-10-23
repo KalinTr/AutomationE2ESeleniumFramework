@@ -1,4 +1,4 @@
-﻿using AutomationFrameworkE2E.Utilities;
+﻿using AutomationFrameworkE2E.Utilities.Base;
 using OpenQA.Selenium;
 
 namespace AutomationFrameworkE2E.Pages

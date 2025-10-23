@@ -5,7 +5,7 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace AutomationFrameworkE2E.Utilities
+namespace AutomationFrameworkE2E.Utilities.Base
 {
     public class TestBase
     {
